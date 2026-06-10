@@ -1,0 +1,321 @@
+{
+  "info": {
+    "_postman_id": "18e56524-2a16-4974-aa93-3d7e71b773ea",
+    "name": "API Metotlar",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34715965"
+  },
+  "item": [
+    {
+      "name": "Kayıt",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"\",\r\n    \"lastName\": \"\",\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/auth/register",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Giriş Yapma",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Adresleri Getirme",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/addresses",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "addresses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Adres Oluşturma",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"\",\r\n    \"city\": \"\",\r\n    \"district\": \"\",\r\n    \"fullAddress\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/addresses",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "addresses"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Adresleri Silme",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/addresses/5",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "addresses",
+            "5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Restorandaki Menüyü Getirme",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/restaurants/5/products",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "restaurants",
+            "5",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Tüm Restoranları Getirme",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/restaurants",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "restaurants"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Mutfak Türlerini Getirme",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/restaurants/cuisines",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "restaurants",
+            "cuisines"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Restoran veya Yemek Arama",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/restaurants/search",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "restaurants",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "query",
+              "value": "pilav",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sipariş Oluşturma",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "https://yemek-kapimda.onrender.com/api/orders",
+          "protocol": "https",
+          "host": [
+            "yemek-kapimda",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

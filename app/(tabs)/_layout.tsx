@@ -1,68 +1,48 @@
-import { SymbolView } from 'expo-symbols';
-import { Link, Tabs } from 'expo-router';
-import { Platform, Pressable } from 'react-native';
+import { Tabs } from 'expo-router';
+import { Text } from 'react-native';
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { COLORS } from '@/src/constants/config';
+import { useCart } from '@/src/context/CartContext';
+
+function TabIcon({ emoji }: { emoji: string }) {
+  return <Text style={{ fontSize: 22 }}>{emoji}</Text>;
+}
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { itemCount } = useCart();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: COLORS.textSecondary,
+        headerStyle: { backgroundColor: COLORS.surface },
+        headerTintColor: COLORS.text,
+        tabBarStyle: {
+          backgroundColor: COLORS.surface,
+          borderTopColor: COLORS.border,
+        },
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
-            />
-          ),
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable style={{ marginRight: 15 }}>
-                {({ pressed }) => (
-                  <SymbolView
-                    name={{ ios: 'info.circle', android: 'info', web: 'info' }}
-                    size={25}
-                    tintColor={Colors[colorScheme].text}
-                    style={{ opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Restoranlar',
+          tabBarIcon: () => <TabIcon emoji="🏠" />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="profile"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{
-                ios: 'chevron.left.forwardslash.chevron.right',
-                android: 'code',
-                web: 'code',
-              }}
-              tintColor={color}
-              size={28}
-            />
-          ),
+          title: 'Hesabım',
+          tabBarIcon: () => <TabIcon emoji="👤" />,
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: 'Sepet',
+          tabBarIcon: () => <TabIcon emoji="🛒" />,
+          tabBarBadge: itemCount > 0 ? itemCount : undefined,
         }}
       />
     </Tabs>
